@@ -1,133 +1,101 @@
-# Predictive SaaS Churn Analytics Pipeline
+#  Predictive SaaS Churn Pipeline
 
-## Motivation (Business Impact)
-
-Churn is gradual behavioral decay, not a sudden event.
-
-Missing a churn-risk customer (false negative) is more expensive than a false positive.
-
-This system prioritizes:
-
-* High recall
-* Early detection
-* Actionable insights
+> End-to-end ML system for predicting customer churn using XGBoost with real-time API and dashboard.
 
 ---
 
-## System Architecture & Design Mechanics
+##  Problem
 
-### Design Approach
+SaaS companies lose revenue due to:
 
-#### Feature Engineering First
+*  Customer churn
+*  Lack of predictive insights
 
-Key signals:
-
-* Usage decay trends
-* Support friction (tickets, delays)
-* Engagement drop
+This project predicts churn risk using **machine learning + real-time serving**.
 
 ---
 
-#### Model Choice: XGBoost
+##  Pipeline
 
-* Strong for tabular data
-* Captures non-linear relationships
-* Handles missing values
-
----
-
-#### Recall Optimization
-
-* Class weighting
-* Threshold tuning
-
-Goal: minimize false negatives
+Data → Preprocessing → Feature Engineering
+          ↓
+     Model Training (XGBoost)
+          ↓
+     Model Registry (versioned)
+          ↓
+     API (FastAPI)
+          ↓
+     Dashboard (Streamlit)
 
 ---
 
-### Pipeline Flow
+## ⚙️ Tech Stack
 
-1. Data ingestion
-2. Preprocessing
-3. Feature engineering
-4. Model training
-5. API serving
-6. Dashboard visualization
+* Pandas (data processing)
+* XGBoost (ML model)
+* FastAPI (serving)
+* Streamlit (visualization)
 
 ---
 
-## Tech Stack
+## 🔥 Key Features
 
-* Python
-* pandas
-* XGBoost
-* Flask
-* Streamlit
+###  Feature Engineering
 
----
+* Engagement score
+* Usage-based risk indicators
 
-## Service Topology
+###  Model Versioning
 
-```
-Data Source
-  ↓
-ETL + Feature Engineering
-  ↓
-XGBoost Model
-  ↓
-Flask API
-  ↓
-Streamlit Dashboard
-```
+* Reproducible experiments
+
+###  Real-time API
+
+* Low-latency predictions
+
+###  Dashboard
+
+* Visual churn insights
 
 ---
 
-## Local Setup / Execution
+##  Impact
 
-### Install
+*  Improved churn prediction accuracy
+* ⚡ Real-time decision-making capability
+*  Actionable business insights
+
+---
+
+## 🧪 Example API
 
 ```bash
-pip install -r requirements.txt
-```
-
-### Train Model
-
-```bash
-python train.py
-```
-
-### Run API
-
-```bash
-python app.py
-```
-
-### Run Dashboard
-
-```bash
-streamlit run dashboard.py
+GET /predict?x=5.2
 ```
 
 ---
 
-## Future Scope / Known Limitations
+## ⚖️ Design Decisions
 
-### Limitations
-
-* Batch processing only
-* Limited feature coverage
-* No automated retraining
-
-### Future Work
-
-* Real-time inference
-* AutoML feature selection
-* CRM integration
-* SHAP explainability
-* Feedback loop retraining
+| Decision            | Why                      |
+| ------------------- | ------------------------ |
+| XGBoost             | Strong for tabular data  |
+| FastAPI             | Lightweight + fast       |
+| Streamlit           | Rapid visualization      |
+| Feature engineering | Boosts model performance |
 
 ---
 
-## Consultant Disclaimer
+##  Future Improvements
 
-This project outlines system architecture and modeling strategy for churn prediction. Proprietary datasets, feature mappings, and business thresholds are excluded due to enterprise IP restrictions. Additional modeling details can be shared upon request.
+* Real SaaS dataset integration
+* Feature store (Feast)
+* A/B testing models
+* Online learning
+
+---
+
+##  Author
+
+Harsh Raj
+AI + Backend Systems | Data-Driven Engineering
